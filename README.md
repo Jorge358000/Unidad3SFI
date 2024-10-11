@@ -5,11 +5,14 @@
   un ejemplo podrías ser  ([Header: Información de control][Payload: Datos reales][Footer: Verificación de datos]).
 ### Header
 La cabeza es la primera parte del protocolo, y está contiene la longitud, tipo y otros datos; su función es identificar las caracterisitcas del mensaje para darle una correcta
-interpretación
+interpretación.
+está contiene el Len(longitud), Adr(dirección), Cmd(instrucciones)
 ### Payload
 El cuerpo transmite correctamente el mensaje, una vez se identifica que tipo de mensaje este es enviado a los sensores, comandos o a dónde se le solicite.
+está contiene la data[]
 ### Footer
 Este principalmente detecta problemas o errores que se puedan encontrar en el mensaje codificado.
+Está contiene LSB-CRC16 y MSB-CRC16, que son bytes para los errores
 
 ```C++
 void setup() {
